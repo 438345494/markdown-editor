@@ -17,7 +17,6 @@ export default {
   },
   methods: {
     languageChange (val) {
-      console.log('val', val)
     }
   }
 }
@@ -25,8 +24,8 @@ export default {
 <style lang='stylus'>
 .editor-area
   width 100%
-  background-color #000
   position relative
+  background-color #3f87a6
   display flex
   flex-flow row nowrap 
   align-items center

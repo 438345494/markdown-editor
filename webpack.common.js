@@ -22,6 +22,13 @@ module.exports = {
         exclude: NODE_MODULES_PATH
       },
       {
+        test: /\.css$/,
+        use: [
+          'style-loader',
+          'css-loader'
+        ]
+      },
+      {
         test: /\.styl(us)?$/,
         use: [
             'style-loader',

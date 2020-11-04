@@ -40,6 +40,8 @@ export default {
   flex-flow column nowrap
   justify-content center
   align-items center
+  border-radius 10px
+  overflow hidden
   .editor-area
     width 100%
     height var(--editor-area-height)
