@@ -36,7 +36,11 @@ module.exports = {
             'stylus-loader'
         ],
         exclude: NODE_MODULES_PATH
-    }
+      },
+      {
+        test: /\.(png|jpg|jpeg|gift|svg)$/,
+        use: 'url-loader'
+      }
     ]
   },
   resolve: {

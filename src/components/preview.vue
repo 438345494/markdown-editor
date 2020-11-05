@@ -5,6 +5,7 @@
 <script>
 import { state } from '../store'
 import marked  from 'marked'
+import DOMPurify from 'dompurify'
 export default {
   components: {},
   data () {
@@ -14,7 +15,7 @@ export default {
   },
   computed: {
     markdown: function () {
-      if (this.marked) return this.marked(state.markdownValue)
+      if (this.marked) return DOMPurify.sanitize(this.marked(state.markdownValue))
       return state.markdownValue
     }
   },

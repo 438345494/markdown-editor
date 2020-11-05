@@ -1,6 +1,6 @@
 <template lang='pug'>
   .markdown-editor(:style="{height: height}")
-    editor-area.editor-area()
+    editor-area.editor-area(:title="title")
     .editor-content
       md-editor
       .separator(v-if="!$slots.default")
@@ -28,6 +28,10 @@ export default {
       default: function () {
         return {}
       }
+    },
+    title: {
+      type: String,
+      default: 'markdown editor'
     }
   },
   provide () {
@@ -65,6 +69,5 @@ export default {
     width 100%
     box-shadow #999 1px 1px 3px
     .separator
-      width 3px
-      border 2px dashed #CCC
+      border 1px solid #CCC
 </style>

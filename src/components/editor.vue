@@ -27,7 +27,6 @@ export default {
         theme: '3024-night',
         lineNumbers: true,
         indentUnit: 2,
-        autofocus: true,
         autocorrect: true,
         lineWrapping: true
       }
