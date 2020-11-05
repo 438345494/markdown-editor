@@ -1,36 +1,48 @@
 <template lang='pug'>
-  textarea.md-editor(ref="textarea" v-model="value")
+  .md-editor
+    textarea(ref="textarea")
 </template>
 
 <script>
 import CodeMirror from 'codemirror/lib/codemirror'
-import 'codemirror/theme/monokai.css'
-import 'codemirror/mode/javascript/javascript'
+import 'codemirror/lib/codemirror.css'
+import 'codemirror/theme/cobalt.css'
+import 'codemirror/mode/markdown/markdown.js'
 export default {
   components: {},
   data () {
     return {
-      value: '',
-      editor: null
+      value: ''
+    }
+  },
+  props: {
+    options: {
+      type: Object,
+      default: function () {
+        return {}
+      }
     }
   },
   mounted () {
-    this.editor = CodeMirror.fromTextArea(this.$refs.textarea,{
-      mode: 'javascript',
-      theme: 'monokai',
-      lineNumbers: true,
-      indentUnit: 4,
-      lineWrapping: true,
-      matchBrackets: true,
-      line: true,
-      smartIndent: true
-    })
-    this.editor.on('change',(val) => {
-      this.value = val.getValue()
-      this.editor.setValue(this.value)
-    })
+    this.init()
   },
   methods: {
+    init () {
+      const defalutOptions = {
+        mode: 'markdown',
+        theme: 'cobalt',
+        lineNumbers: true,
+        indentUnit: 2,
+        autofocus: true,
+        autocorrect: true
+      }
+      const options = Object.assign(defalutOptions, this.options)
+      const editor = CodeMirror.fromTextArea(this.$refs.textarea, options)
+      editor.setValue(this.value)
+      editor.on('change', editor => {
+        console.log('editor has change: ', editor.getValue())
+      })
+    }
   }
 }
 </script>

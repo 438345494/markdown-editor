@@ -1,16 +1,16 @@
 export default {
   languageList: [
     {
-      value: 0,
+      value: 'markdown',
       label: 'markdown',
       selected: true
     },
     {
-      value: 1,
+      value: 'xml',
       label: 'HTML'
     },
     {
-      value: 2,
+      value: 'javascript',
       label: 'javascript'
     }
   ]

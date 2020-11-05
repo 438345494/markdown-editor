@@ -1,6 +1,6 @@
 <template lang='pug'>
   .markdown-editor(:style="{height: height}")
-    editor-area.editor-area
+    editor-area.editor-area()
     .editor-content
       md-editor
       md-preview

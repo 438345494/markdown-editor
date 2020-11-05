@@ -33,7 +33,7 @@
     "webpack-merge": "^5.1.4"
   },
   "dependencies": {
-    "codemirror": "^5.58.2",
+    "codemirror": "^5.41.0",
     "vue": "^2.6.12"
   }
 }
