@@ -1,16 +1,20 @@
 <template lang='pug'>
   .test-div
-    md-editor
+    md-editor(height="400px" :options="options")
 </template>
 
 <script>
 import mdEditor from '../src/index.vue'
+import 'codemirror/theme/idea.css'
 export default {
   components: {
     mdEditor
   },
   data () {
     return {
+      options: {
+        theme: '3024-night'
+      }
     }
   },
   mounted () {
@@ -21,5 +25,5 @@ export default {
 </script>
 <style lang='stylus'>
 .test-div
-  width 600px
+  width 1000px
 </style>

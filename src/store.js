@@ -1,15 +1,10 @@
 import Vue from 'vue'
 
-const state = Vue.observable({
-  mode: 'markdown'
+export const state = Vue.observable({
+  markdownValue: ''
 })
-const mutations = {
-  setMode (val) {
-    state.mode = val
+export const mutations = {
+  setMarkdown (val) {
+    state.markdownValue = val
   }
-}
-
-export default {
-  state,
-  mutations
 }

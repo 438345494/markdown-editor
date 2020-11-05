@@ -1,5 +1,6 @@
 <template lang='pug'>
-  .editor-area
+  .editor-area 
+    h1 markdown编辑器
 </template>
 
 <script>

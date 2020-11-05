@@ -3,6 +3,8 @@
     editor-area.editor-area()
     .editor-content
       md-editor
+      .separator(v-if="!$slots.default")
+      slot(v-else)
       md-preview
 </template>
 
@@ -20,6 +22,17 @@ export default {
     height: {
       type: String,
       default: '300px'
+    },
+    options: {
+      type: Object,
+      default: function () {
+        return {}
+      }
+    }
+  },
+  provide () {
+    return {
+      options: this.options
     }
   },
   data () {
@@ -50,4 +63,8 @@ export default {
     flex-flow row nowrap
     height calc(100% - var(--editor-area-height))
     width 100%
+    box-shadow #999 1px 1px 3px
+    .separator
+      width 3px
+      border 2px dashed #CCC
 </style>

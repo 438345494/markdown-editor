@@ -6,8 +6,9 @@
 <script>
 import CodeMirror from 'codemirror/lib/codemirror'
 import 'codemirror/lib/codemirror.css'
-import 'codemirror/theme/cobalt.css'
+import 'codemirror/theme/3024-night.css'
 import 'codemirror/mode/markdown/markdown.js'
+import { mutations } from '../store'
 export default {
   components: {},
   data () {
@@ -15,14 +16,7 @@ export default {
       value: ''
     }
   },
-  props: {
-    options: {
-      type: Object,
-      default: function () {
-        return {}
-      }
-    }
-  },
+  inject: ['options'],
   mounted () {
     this.init()
   },
@@ -30,17 +24,19 @@ export default {
     init () {
       const defalutOptions = {
         mode: 'markdown',
-        theme: 'cobalt',
+        theme: '3024-night',
         lineNumbers: true,
         indentUnit: 2,
         autofocus: true,
-        autocorrect: true
+        autocorrect: true,
+        lineWrapping: true
       }
-      const options = Object.assign(defalutOptions, this.options)
+      const options = Object.assign(defalutOptions, this.options, { // mode只可以是markdown
+        mode: 'markdown'
+      })
       const editor = CodeMirror.fromTextArea(this.$refs.textarea, options)
-      editor.setValue(this.value)
       editor.on('change', editor => {
-        console.log('editor has change: ', editor.getValue())
+        mutations.setMarkdown(editor.getValue())
       })
     }
   }
@@ -54,4 +50,6 @@ export default {
   overflow-y auto
   outline none
   box-sizing border-box
+  .CodeMirror
+    height 100%
 </style>
