@@ -3,7 +3,7 @@ const { merge } = require('webpack-merge')
 const webpackCommon = require('./webpack.common')
 const { getPath } = require('./webpack.utils')
 const config = {
-  entry: getPath('./test'),
+  entry: getPath('./demo'),
   plugins: [
   ],
   devServer: {

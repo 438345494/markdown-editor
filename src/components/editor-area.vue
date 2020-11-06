@@ -1,26 +1,54 @@
-<template lang='pug'>
-  .editor-area 
-    .fn-content
-      .back
-      .pre
-      .clean
-    .title {{ title }}
-</template>
-
 <script>
 export default {
   components: {
   },
   props: {
+    layout: String,
     title: String
+  },
+  inheritAttrs: false,
+  computed: {
+
   },
   data () {
     return {
     }
   },
+  render (h, c) {
+    const componentsSort = ['back', 'pre', 'clean'] // 模块排序
+    const fns = this.layout.split(',').map(item => item.trim()).sort((p,b) => {
+      return componentsSort.indexOf(p) - componentsSort.indexOf(b)
+    })
+    const TEMPLATE_MAP = {
+      back: <div class="back" onClick={this.back}></div>,
+      pre: <div class="pre" onClick={this.pre}></div>,
+      clean: <div class="clean" onClick={this.clean}></div>
+    }
+    const arr = []
+    fns.forEach(item => {
+      if (TEMPLATE_MAP[item]) arr.push(TEMPLATE_MAP[item])
+    })
+    let template = <div class="editor-area ">
+      <div class="fn-content">{
+        arr
+      }
+      </div>
+      <div class="title">{this.title}</div>
+    </div>
+    return template
+  },
   mounted () {
   },
   methods: {
+    back () {
+      console.log('i am back')
+    },
+    pre () {
+      console.log('i am pre')
+    },
+    clean () {
+      this.$emit('clean')
+    }
   }
 }
 </script>

@@ -1,11 +1,11 @@
 <template lang='pug'>
   .markdown-editor(:style="{height: height}")
-    editor-area.editor-area(:title="title")
+    editor-area.editor-area(v-bind="$attrs" v-on="$listeners" @clean="clean")
     .editor-content
-      md-editor
+      md-editor(v-bind="$attrs" v-on="$listeners" ref="mdEditor")
       .separator(v-if="!$slots.default")
       slot(v-else)
-      md-preview
+      md-preview(v-bind="$attrs" v-on="$listeners")
 </template>
 
 <script>
@@ -18,25 +18,11 @@ export default {
     mdPreview,
     editorArea
   },
+  inheritAttrs: false,
   props: {
     height: {
       type: String,
       default: '300px'
-    },
-    options: {
-      type: Object,
-      default: function () {
-        return {}
-      }
-    },
-    title: {
-      type: String,
-      default: 'markdown editor'
-    }
-  },
-  provide () {
-    return {
-      options: this.options
     }
   },
   data () {
@@ -46,6 +32,9 @@ export default {
   mounted () {
   },
   methods: {
+    clean () {
+      this.$refs.mdEditor.editor.setValue('')
+    }
   }
 }
 </script>

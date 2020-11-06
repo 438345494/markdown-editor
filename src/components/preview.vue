@@ -13,6 +13,7 @@ export default {
       marked: null
     }
   },
+  inheritAttrs: false,
   computed: {
     markdown: function () {
       if (this.marked) return DOMPurify.sanitize(this.marked(state.markdownValue))

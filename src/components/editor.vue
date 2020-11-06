@@ -11,12 +11,21 @@ import 'codemirror/mode/markdown/markdown.js'
 import { mutations } from '../store'
 export default {
   components: {},
-  data () {
-    return {
-      value: ''
+  props: {
+    options: {
+      type: Object,
+      default: function () {
+        return {}
+      }
     }
   },
-  inject: ['options'],
+  inheritAttrs: false,
+  data () {
+    return {
+      value: '',
+      editor: null
+    }
+  },
   mounted () {
     this.init()
   },
@@ -33,8 +42,9 @@ export default {
       const options = Object.assign(defalutOptions, this.options, { // mode只可以是markdown
         mode: 'markdown'
       })
-      const editor = CodeMirror.fromTextArea(this.$refs.textarea, options)
-      editor.on('change', editor => {
+      this.editor = CodeMirror.fromTextArea(this.$refs.textarea, options)
+      this.editor.on('change', editor => { // 内容改变
+        this.$emit('change', editor.getValue())
         mutations.setMarkdown(editor.getValue())
       })
     }

@@ -1,6 +1,6 @@
 <template lang='pug'>
   .test-div
-    md-editor(height="400px" :options="options")
+    md-editor(height="400px" :options="options" :layout="layout" @change="change" @clean="clean" title="markdown 编辑器")
 </template>
 
 <script>
@@ -14,12 +14,19 @@ export default {
     return {
       options: {
         theme: '3024-night'
-      }
+      },
+      layout: 'clean, pre, back'
     }
   },
   mounted () {
   },
   methods: {
+    change (val) {
+      console.log('wlx', val)
+    },
+    clean () {
+      console.log('wlx-clean')
+    }
   }
 }
 </script>
