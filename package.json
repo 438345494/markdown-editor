@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --env.NODE_ENV=production --config webpack.pro.js",
-    "dev": "webpack-dev-server --env.NODE_ENV=development --config webpack.dev.js"
+    "dev": "webpack-dev-server --env.NODE_ENV=development --config webpack.dev.js",
+    "unit": "mocha --require @babel/register --bail"
   },
   "author": "wanglixin",
   "license": "ISC",
@@ -15,6 +16,7 @@
     "@babel/plugin-proposal-decorators": "^7.1.6",
     "@babel/plugin-transform-runtime": "^7.1.0",
     "@babel/preset-env": "^7.12.1",
+    "@babel/register": "^7.12.1",
     "@babel/runtime": "^7.1.5",
     "@vue/babel-helper-vue-jsx-merge-props": "^1.2.1",
     "@vue/babel-preset-jsx": "^1.2.4",
@@ -22,6 +24,7 @@
     "clean-webpack-plugin": "^3.0.0",
     "css-loader": "^5.0.0",
     "html-webpack-plugin": "^4.5.0",
+    "mocha": "^8.2.1",
     "pug-html-loader": "^1.1.5",
     "pug-plain-loader": "^1.0.0",
     "style-loader": "^2.0.0",
