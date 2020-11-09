@@ -1,5 +1,5 @@
 <template lang='pug'>
-  .md-preview(v-html="markdown")
+  .md-preview(v-html="markdown" id="md-preview")
 </template>
 
 <script>
@@ -10,6 +10,7 @@ export default {
   components: {},
   data () {
     return {
+      ...state,
       marked: null
     }
   },
@@ -28,6 +29,18 @@ export default {
     })
   },
   methods: {
+  },
+  watch: {
+    editorScrollInfo: {
+      handler: function (newVal) {
+        const { scrollTop, height, scrollHeight } = newVal
+        const previewScrollHeight = document.getElementById('md-preview').scrollHeight
+        const previewHeight = document.getElementById('md-preview').getBoundingClientRect().height
+        document.getElementById('md-preview').scrollTop = Math.round(scrollTop / (scrollHeight - height) * (previewScrollHeight - previewHeight))
+        console.log('scro', Math.round((scrollTop + height) * previewScrollHeight / scrollHeight - previewHeight))
+      },
+      deep: true
+    }
   }
 }
 </script>

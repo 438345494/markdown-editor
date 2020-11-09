@@ -22,15 +22,16 @@ export default {
   },
   methods: {
     change (val) {
-      console.log('wlx', val)
+      // console.log('wlx', val)
     },
     clean () {
-      console.log('wlx-clean')
+      // console.log('wlx-clean')
     }
   }
 }
 </script>
 <style lang='stylus'>
 .test-div
+  margin 30px auto
   width 1000px
 </style>

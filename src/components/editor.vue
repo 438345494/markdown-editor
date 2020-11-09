@@ -9,6 +9,7 @@ import 'codemirror/lib/codemirror.css'
 import 'codemirror/theme/3024-night.css'
 import 'codemirror/mode/markdown/markdown.js'
 import { mutations } from '../store'
+import { debounce } from '@utils/tools'
 export default {
   components: {},
   props: {
@@ -46,6 +47,16 @@ export default {
       this.editor.on('change', editor => { // 内容改变
         this.$emit('change', editor.getValue())
         mutations.setMarkdown(editor.getValue())
+      })
+      this.editor.on('scroll', () => {
+        const { scrollTop, height } = this?.editor?.doc
+        const scrollInfo = {
+          scrollTop,
+          height,
+          scrollHeight: document.getElementsByClassName('CodeMirror-scroll')[0].scrollHeight
+        }
+        this.$emit('scroll', scrollInfo)
+        mutations.setEditorScrollInfo(scrollInfo)
       })
     }
   }

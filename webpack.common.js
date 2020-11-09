@@ -44,11 +44,13 @@ module.exports = {
     ]
   },
   resolve: {
-    extensions: ['.js', '.vue', '.json'],
+    extensions: ['.js', '.vue', '.json', '.styl'],
     alias: {
       '@config': getPath('./config'),
       '@src': getPath('./src'),
-      '@components': getPath('./src/components')
+      '@components': getPath('./src/components'),
+      '@css': getPath('./src/css'),
+      '@utils': getPath('./utils')
     }
   },
   plugins: [
