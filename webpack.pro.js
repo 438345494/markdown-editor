@@ -11,7 +11,7 @@ const config = {
   plugins: [
     new CleanWebpackPlugin({
       cleanOnceBeforeBuildPatterns: [
-        path.resolve(__dirname, './dist')
+        getPath('./dist')
       ]
     }),
   ]

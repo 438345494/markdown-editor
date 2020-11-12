@@ -40,6 +40,12 @@ module.exports = {
       {
         test: /\.(png|jpg|jpeg|gift|svg)$/,
         use: 'url-loader'
+      },
+      {
+        test: /\.js$/,
+        use: ['eslint-loader'],
+        exclude: NODE_MODULES_PATH,
+        enforce: 'pre'
       }
     ]
   },

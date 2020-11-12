@@ -39,7 +39,7 @@ export default {
 }
 </script>
 <style lang='stylus'>
-@import '@src/css/basic.styl'
+// @import '@src/css/basic.styl'
 .markdown-editor
   --editor-area-height 40px
   width 100%

@@ -56,7 +56,7 @@ export default {
 .editor-area
   width 100%
   position relative
-  background-color lightgray
+  background-color #fafafa
   display flex
   flex-flow row nowrap 
   align-items center

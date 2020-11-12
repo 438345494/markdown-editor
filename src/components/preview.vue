@@ -48,7 +48,7 @@ export default {
 .md-preview
   width 100%
   height 100%
-  background-color #fafafa
+  background-image linear-gradient(to right, #ADA996, #F2F2F2, #DBDBDB, #EAEAEA)
   word-wrap break-word
   word-break break-all
   overflow-y auto
