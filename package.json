@@ -2,7 +2,7 @@
   "name": "mdeditor",
   "version": "1.0.0",
   "description": "markdown编辑器",
-  "main": "index.js",
+  "main": "./dist/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --env.NODE_ENV=production --config webpack.pro.js",

@@ -13,6 +13,7 @@ import mdEditor from '@components/editor'
 import mdPreview from '@components/preview'
 import editorArea from '@components/editor-area'
 export default {
+  name: 'mdEditor',
   components: {
     mdEditor,
     mdPreview,

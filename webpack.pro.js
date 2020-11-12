@@ -6,7 +6,7 @@ const config = {
   entry: getPath('./src'),
   output: {
     path: getPath('./dist'),
-    filename: '[name][hash:6].js'
+    filename: 'index.js'
   },
   plugins: [
     new CleanWebpackPlugin({
