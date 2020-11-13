@@ -4,12 +4,8 @@
 </template>
 
 <script>
-import mdEditor from '../src/index.vue'
 import 'codemirror/theme/idea.css'
 export default {
-  components: {
-    mdEditor
-  },
   data () {
     return {
       options: {

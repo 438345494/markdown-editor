@@ -3,10 +3,11 @@ const webpackCommon = require('./webpack.common')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const { getPath } = require('./webpack.utils')
 const config = {
-  entry: getPath('./src'),
+  entry: getPath('./src/index.js'),
   output: {
     path: getPath('./dist'),
-    filename: 'index.js'
+    filename: 'index.js',
+    libraryTarget: 'commonjs2'
   },
   plugins: [
     new CleanWebpackPlugin({

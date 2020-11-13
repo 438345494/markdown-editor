@@ -2,21 +2,21 @@
   .markdown-editor(:style="{height: height}")
     editor-area.editor-area(v-bind="$attrs" v-on="$listeners" @clean="clean")
     .editor-content
-      md-editor(v-bind="$attrs" v-on="$listeners" ref="mdEditor")
+      editor(v-bind="$attrs" v-on="$listeners" ref="mdEditor")
       .separator(v-if="!$slots.default")
       slot(v-else)
-      md-preview(v-bind="$attrs" v-on="$listeners")
+      preview(v-bind="$attrs" v-on="$listeners")
 </template>
 
 <script>
-import mdEditor from '@components/editor'
-import mdPreview from '@components/preview'
+import editor from '@components/editor'
+import preview from '@components/preview'
 import editorArea from '@components/editor-area'
 export default {
   name: 'mdEditor',
   components: {
-    mdEditor,
-    mdPreview,
+    editor,
+    preview,
     editorArea
   },
   inheritAttrs: false,
